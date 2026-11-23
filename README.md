@@ -1,4 +1,23 @@
-# Project Guardian（工作环境保护平台）
+# Project Guardian
+
+**为远程串流而生的 Windows 工作环境隐私保护壳**
+
+离开工位时，物理屏幕自动熄灭、本地键鼠被隔离，远程端画面照常流畅——不用拔线，不用锁屏，也不用担心本地误触打断任务。
+
+[![下载 v0.1.5](https://img.shields.io/badge/下载-v0.1.5%20离线完整版-2ea44f?style=for-the-badge)](https://github.com/GH17812/Guardian/releases/download/v0.1.5/Guardian-0.1.5.msi)
+![平台](https://img.shields.io/badge/Windows-10%2F11%20x64-0078D4?style=flat-square)
+![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=flat-square)
+![版本](https://img.shields.io/badge/version-0.1.5-2ea44f?style=flat-square)
+
+![主界面](docs/images/main-window.png)
+
+**它能做什么**
+
+- **一键部署**：自动安装 Sunshine、启用虚拟显示器并完成接管，远程端直接开播；一键恢复普通串流模式。
+- **两种保护模式**：隐私保护只熄屏；输入隔离熄屏并隔离本地键鼠，避免误操作影响远程任务。
+- **PSS 式待机**：取代 Windows 休眠，屏幕熄灭但系统在线，维持最低串流需求；本地唤醒需密码。
+- **紧急恢复**：本地 `Ctrl+Alt+Shift+F12` 由服务端直接识别，不依赖界面，一键退出保护。
+- **离线可用**：v0.1.5 内置 Sunshine 与 VDD 驱动，自包含运行时，装完即用。
 
 运行于 Windows 10/11 的本地工作环境保护与管理软件。为远程桌面、AI Agent、本地自动化及无人值守任务提供统一的保护层：显示隐私、输入隔离、系统持续运行、工作会话管理、双向恢复与异常保护。
 
