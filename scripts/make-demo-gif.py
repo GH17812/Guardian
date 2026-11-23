@@ -35,9 +35,9 @@ ACCENT = (75, 224, 160)
 
 SLIDES = [
     ("main-window.png", "主界面 · 一键启用"),
-    ("main-window-detail.png", "运行详情 · 七步自检"),
+    ("main-window-detail.png", "待机模式 · PS5 式熄屏在线"),
     ("settings.png", "设置 · 语言 / 主题 / 服务参数"),
-    ("streaming-env.png", "串流环境 · 依赖自检"),
+    ("streaming-env.png", "串流环境 · 离线依赖自检"),
 ]
 
 

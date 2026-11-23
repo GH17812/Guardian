@@ -72,9 +72,9 @@ Download: [v0.1.5 offline](https://github.com/GH17812/Guardian/releases/download
 
 ## 应用截图
 
-| 主界面 | 运行详情 |
+| 主界面 | 待机模式 |
 |---|---|
-| ![主界面](docs/images/main-window.png) | ![运行详情](docs/images/main-window-detail.png) |
+| ![主界面](docs/images/main-window.png) | ![待机模式](docs/images/main-window-detail.png) |
 
 | 设置 | 串流环境自检 |
 |---|---|
