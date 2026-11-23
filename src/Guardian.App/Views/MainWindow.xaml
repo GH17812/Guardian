@@ -1,0 +1,370 @@
+<Window x:Class="Guardian.App.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource Str.AppTitle}"
+        Width="1100" Height="760" MinWidth="940" MinHeight="700"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        FontFamily="Segoe UI Variable, Segoe UI" FontSize="13.5">
+
+    <Grid Margin="28,20,28,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- 顶栏 -->
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="{DynamicResource Str.AppName}" FontSize="20" FontWeight="SemiBold"
+                           Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Center" />
+                <Border Style="{StaticResource BadgeBorder}" Margin="14,0,0,0" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="9" Height="9" Fill="{Binding ConnectionBrush}" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding ConnectionText}" Foreground="{DynamicResource SecondaryTextBrush}"
+                                   FontSize="12" Margin="6,0,0,0" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+                <TextBlock Text="{Binding ServiceVersionText}" Foreground="{DynamicResource SecondaryTextBrush}"
+                           FontSize="12.5" Margin="14,0,0,0" VerticalAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{StaticResource GhostButton}" Content="{DynamicResource Str.Settings}"
+                        Command="{Binding OpenSettingsCommand}" Margin="0,0,8,0" />
+                <Button Style="{StaticResource GhostButton}" Content="{DynamicResource Str.Logs}"
+                        Command="{Binding OpenLogsCommand}" />
+            </StackPanel>
+        </Grid>
+
+        <!-- 服务异常横幅 -->
+        <Border Grid.Row="1" Background="{DynamicResource WarningBrush}" CornerRadius="12" Padding="16,12"
+                Margin="0,0,0,16" Visibility="{Binding ShowServiceBanner, Converter={StaticResource BoolToVis}}">
+            <Grid>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="&#xE7BA;" FontFamily="Segoe MDL2 Assets" FontSize="16" Foreground="White"
+                               VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding BannerText}" Foreground="White" FontWeight="SemiBold"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+                <Button HorizontalAlignment="Right" Style="{StaticResource BannerButton}"
+                        Content="{DynamicResource Str.InstallStartService}"
+                        Command="{Binding InstallStartServiceCommand}" />
+            </Grid>
+        </Border>
+
+        <!-- 主内容 -->
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <!-- 主控制卡 + 模式选择 -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.15*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- 主控制卡 -->
+                    <Border Grid.Column="0" Style="{StaticResource Card}" Padding="30" Margin="0,0,12,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Width="132" Height="132" Command="{Binding ToggleProtectionCommand}"
+                                    IsEnabled="{Binding CanOperate}" Background="Transparent" BorderThickness="0"
+                                    Cursor="Hand" Focusable="False" VerticalAlignment="Center">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Grid>
+                                            <Ellipse x:Name="ring" Stroke="{DynamicResource SecondaryTextBrush}"
+                                                     StrokeThickness="2" Fill="Transparent" />
+                                            <Ellipse x:Name="fill" Fill="Transparent" Margin="6" />
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding IsProtectionActive}" Value="True">
+                                                <Setter TargetName="ring" Property="Stroke"
+                                                        Value="{DynamicResource SuccessBrush}" />
+                                                <Setter TargetName="fill" Property="Fill"
+                                                        Value="{DynamicResource SuccessFillBrush}" />
+                                            </DataTrigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="fill" Property="Opacity" Value="0.5" />
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="Opacity" Value="0.45" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <TextBlock Text="{Binding ToggleButtonText}" Foreground="{DynamicResource PrimaryTextBrush}"
+                                           FontSize="15" FontWeight="SemiBold" TextWrapping="Wrap"
+                                           TextAlignment="Center" Margin="16" />
+                            </Button>
+                            <StackPanel Grid.Column="1" Margin="26,0,0,0" VerticalAlignment="Center">
+                                <TextBlock Text="{DynamicResource Str.ProtectionStateLabel}"
+                                           Foreground="{DynamicResource SecondaryTextBrush}" FontSize="13" />
+                                <TextBlock Text="{Binding StateText}" FontSize="30" FontWeight="SemiBold"
+                                           Foreground="{Binding StateBrush}" Margin="0,4,0,6" />
+                                <TextBlock FontSize="14" Foreground="{DynamicResource PrimaryTextBrush}">
+                                    <Run Text="{DynamicResource Str.CurrentMode}" /><Run Text=" " /><Run Text="{Binding ActiveModeText, Mode=OneWay}" />
+                                </TextBlock>
+                                <TextBlock FontSize="12.5" Foreground="{DynamicResource SecondaryTextBrush}"
+                                           Margin="0,8,0,0" TextWrapping="Wrap">
+                                    <Run Text="{DynamicResource Str.LastOperation}" /><Run Text=" " /><Run Text="{Binding LastOperationText, Mode=OneWay}" />
+                                </TextBlock>
+                                <TextBlock FontSize="12.5" Foreground="{DynamicResource WarningBrush}"
+                                           Margin="0,8,0,0" TextWrapping="Wrap" Text="{Binding StreamingNoteText}"
+                                           Visibility="{Binding ShowStreamingNote, Converter={StaticResource BoolToVis}}" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <!-- 模式选择卡 -->
+                    <Border Grid.Column="1" Style="{StaticResource Card}" Padding="22" Margin="12,0,0,0">
+                        <StackPanel>
+                            <TextBlock Text="{DynamicResource Str.ModeSelectionTitle}"
+                                       Foreground="{DynamicResource SecondaryTextBrush}" FontSize="13" Margin="2,0,0,12" />
+                            <RadioButton Style="{StaticResource SegmentedButton}" GroupName="ProtectionMode"
+                                         IsChecked="{Binding IsPrivacy, Mode=TwoWay}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource Str.PrivacyMode}" FontSize="14" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource Str.PrivacyModeDesc}" FontSize="12"
+                                               Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" />
+                                </StackPanel>
+                            </RadioButton>
+                            <RadioButton Style="{StaticResource SegmentedButton}" GroupName="ProtectionMode"
+                                         IsChecked="{Binding IsInputIsolation, Mode=TwoWay}" Margin="0,8,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource Str.InputIsolationMode}" FontSize="14" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource Str.InputIsolationModeDesc}" FontSize="12"
+                                               Foreground="{DynamicResource WarningBrush}" TextWrapping="Wrap" />
+                                </StackPanel>
+                            </RadioButton>
+                            <RadioButton Style="{StaticResource SegmentedButton}" GroupName="ProtectionMode"
+                                         IsChecked="{Binding IsEnhanced, Mode=TwoWay}" IsEnabled="False" Margin="0,8,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource Str.EnhancedIsolationMode}" FontSize="14" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource Str.EnhancedIsolationModeDesc}" FontSize="12"
+                                               Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" />
+                                </StackPanel>
+                            </RadioButton>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <!-- 待机模式（PS5 式） -->
+                <Border Style="{StaticResource Card}" Padding="20" Margin="0,12,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="&#xE708;" FontFamily="Segoe MDL2 Assets" FontSize="20"
+                                   Foreground="{DynamicResource AccentBrush}" VerticalAlignment="Center" />
+                        <StackPanel Grid.Column="1" Margin="14,0,16,0" VerticalAlignment="Center">
+                            <TextBlock Text="{DynamicResource Str.RestModeTitle}" FontSize="14" FontWeight="SemiBold"
+                                       Foreground="{DynamicResource PrimaryTextBrush}" />
+                            <TextBlock Text="{DynamicResource Str.RestModeDesc}" FontSize="12"
+                                       Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" Margin="0,3,0,0" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <CheckBox IsChecked="{Binding IsRestModeArmed, Mode=TwoWay}"
+                                      Content="{DynamicResource Str.RestModeToggle}"
+                                      Foreground="{DynamicResource PrimaryTextBrush}" FontSize="13" />
+                            <TextBlock Text="{Binding RestModeStatusText}" FontSize="12"
+                                       Foreground="{DynamicResource SecondaryTextBrush}" HorizontalAlignment="Right"
+                                       Margin="0,4,2,0" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- 串流环境（一键启用 / 一键卸载） -->
+                <Border Style="{StaticResource Card}" Padding="20" Margin="0,12,0,0">
+                    <StackPanel>
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock Text="&#xE7F4;" FontFamily="Segoe MDL2 Assets" FontSize="20"
+                                           Foreground="{DynamicResource AccentBrush}" VerticalAlignment="Center" />
+                                <StackPanel Margin="14,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="{DynamicResource Str.EnvTitle}" FontSize="14" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource PrimaryTextBrush}" />
+                                    <TextBlock Text="{Binding StreamingEnvSummaryText}" FontSize="12"
+                                               Foreground="{DynamicResource SecondaryTextBrush}"
+                                               TextWrapping="Wrap" Margin="0,3,0,0" MaxWidth="560" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding StreamingEnvStateText}" FontSize="14" FontWeight="SemiBold"
+                                           Foreground="{Binding StreamingEnvStateBrush}" VerticalAlignment="Center"
+                                           Margin="0,0,14,0" />
+                                <Button Style="{StaticResource GhostButton}" Content="{DynamicResource Str.EnvDetails}"
+                                        Command="{Binding ToggleStreamingEnvDetailsCommand}" Margin="0,0,8,0" />
+                                <Button Style="{StaticResource GhostButton}" Content="{DynamicResource Str.EnvRefresh}"
+                                        Command="{Binding RefreshStreamingEnvCommand}" Margin="0,0,8,0" />
+                                <Button Style="{StaticResource DangerButton}" Content="{DynamicResource Str.EnvRevert}"
+                                        Command="{Binding RevertStreamingEnvCommand}"
+                                        IsEnabled="{Binding StreamingEnvCanRevert}" Margin="0,0,8,0" />
+                                <Button Style="{StaticResource PrimaryButton}" Content="{DynamicResource Str.EnvEnable}"
+                                        Command="{Binding EnableStreamingEnvCommand}"
+                                        IsEnabled="{Binding StreamingEnvCanEnable}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- 拦停原因：互锁命中时必须原样显示，不能被改写成"成功" -->
+                        <TextBlock Text="{Binding StreamingEnvBlockedText}" FontSize="12.5"
+                                   Foreground="{DynamicResource WarningBrush}" TextWrapping="Wrap"
+                                   Margin="0,10,0,0"
+                                   Visibility="{Binding ShowStreamingEnvBlocked, Converter={StaticResource BoolToVis}}" />
+                        <TextBlock Text="{Binding StreamingEnvActivityText}" FontSize="12"
+                                   Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap"
+                                   Margin="0,6,0,0" />
+
+                        <!-- 钉死产物：官方地址 + 期望哈希，用户可自行核对后放进离线目录 -->
+                        <StackPanel Visibility="{Binding ShowStreamingEnvDetails, Converter={StaticResource BoolToVis}}">
+                            <TextBlock Text="{DynamicResource Str.EnvAssetsTitle}" FontSize="12.5" FontWeight="SemiBold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,12,0,6" />
+                            <ItemsControl ItemsSource="{Binding StreamingEnvAssetLines}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,0,0,8">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="180" />
+                                                <ColumnDefinition Width="92" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding Title}" FontSize="12.5"
+                                                       Foreground="{DynamicResource PrimaryTextBrush}" />
+                                            <TextBlock Grid.Column="1" Text="{Binding Outcome}" FontSize="12.5"
+                                                       Foreground="{DynamicResource SecondaryTextBrush}" />
+                                            <TextBlock Grid.Column="2" Text="{Binding Evidence}" FontSize="11.5"
+                                                       Foreground="{DynamicResource SecondaryTextBrush}"
+                                                       TextWrapping="Wrap" MaxWidth="640" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+
+                        <!-- 串流环境自检面板：逐步结论 + 服务端实测取证 -->
+                        <ItemsControl ItemsSource="{Binding StreamingEnvSteps}" Margin="0,12,0,0"
+                                      Visibility="{Binding ShowStreamingEnvDetails, Converter={StaticResource BoolToVis}}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,0,0,8">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="180" />
+                                            <ColumnDefinition Width="92" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding Title}" FontSize="12.5"
+                                                   Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Top" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Outcome}" FontSize="12.5"
+                                                   FontWeight="SemiBold" Foreground="{Binding OutcomeBrush}"
+                                                   VerticalAlignment="Top" />
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top">
+                                            <TextBlock Text="{Binding TimeText}" FontSize="11.5"
+                                                       Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,0,10,0" />
+                                            <TextBlock Text="{Binding Evidence}" FontSize="12" MaxWidth="560"
+                                                       Foreground="{DynamicResource SecondaryTextBrush}" TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <!-- 状态磁贴 -->
+                <ItemsControl ItemsSource="{Binding Tiles}" Margin="-6,12,-6,0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="4" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource Card}" Margin="6" Padding="16">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Glyph}" FontFamily="Segoe MDL2 Assets" FontSize="20"
+                                               Foreground="{DynamicResource AccentBrush}" />
+                                    <TextBlock Text="{Binding Title}" Foreground="{DynamicResource SecondaryTextBrush}"
+                                               FontSize="12" Margin="0,10,0,2" />
+                                    <TextBlock Text="{Binding Value}" Foreground="{Binding ValueBrush}" FontSize="17"
+                                               FontWeight="SemiBold" TextWrapping="Wrap" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- 工作会话卡 -->
+                <Border Style="{StaticResource Card}" Padding="20" Margin="0,12,0,0">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,12">
+                            <TextBlock Text="{DynamicResource Str.SessionsTitle}" Style="{StaticResource SectionTitle}"
+                                       VerticalAlignment="Center" />
+                            <Button HorizontalAlignment="Right" Style="{StaticResource PrimaryButton}"
+                                    Content="{DynamicResource Str.NewSession}" Command="{Binding CreateSessionCommand}"
+                                    IsEnabled="{Binding CanOperate}" />
+                        </Grid>
+                        <DataGrid ItemsSource="{Binding Sessions}" Style="{StaticResource GuardianDataGrid}"
+                                  MaxHeight="280" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{DynamicResource Str.SessionName}" Binding="{Binding Name}" Width="*" />
+                                <DataGridTextColumn Header="{DynamicResource Str.SessionType}" Binding="{Binding WorkloadTypeText}" Width="130" />
+                                <DataGridTextColumn Header="{DynamicResource Str.SessionMode}" Binding="{Binding RequiredModeText}" Width="110" />
+                                <DataGridTextColumn Header="{DynamicResource Str.SessionCreatedAt}" Binding="{Binding CreatedAtText}" Width="150" />
+                                <DataGridTextColumn Header="{DynamicResource Str.SessionStatus}" Binding="{Binding StatusText}" Width="90" />
+                                <DataGridTemplateColumn Width="84">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Style="{StaticResource GhostButton}" Content="{DynamicResource Str.EndSession}"
+                                                    Padding="12,5"
+                                                    Command="{Binding DataContext.EndSessionCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                    CommandParameter="{Binding}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBlock Text="{DynamicResource Str.NoSessions}" Foreground="{DynamicResource SecondaryTextBrush}"
+                                   Margin="4,12,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Sessions.Count}" Value="0">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- 底部栏 -->
+        <Border Grid.Row="3" Style="{StaticResource Card}" Padding="20" Margin="0,16,0,0">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource DangerButton}" Content="{DynamicResource Str.EmergencyRecover}"
+                            Command="{Binding EmergencyRecoverCommand}" IsEnabled="{Binding CanOperate}" />
+                    <TextBlock Text="{Binding EmergencyHotkeyText}" Foreground="{DynamicResource SecondaryTextBrush}"
+                               FontSize="12" VerticalAlignment="Center" Margin="14,0,0,0" TextWrapping="Wrap"
+                               MaxWidth="460" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="{DynamicResource Str.LastOperation}" Foreground="{DynamicResource SecondaryTextBrush}"
+                               FontSize="12.5" />
+                    <TextBlock Text="{Binding LastOperationText}" Foreground="{DynamicResource PrimaryTextBrush}"
+                               FontSize="12.5" Margin="8,0,0,0" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>Guardian.App</RootNamespace>
+    <AssemblyName>Guardian.App</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 移除 WinForms 隐式全局 using，避免与 WPF 类型（Application/Brush 等）歧义；托盘代码显式 using。 -->
+    <Using Remove="System.Drawing" />
+    <Using Remove="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Guardian.Contracts\Guardian.Contracts.csproj" />
+    <ProjectReference Include="..\Guardian.Infrastructure\Guardian.Infrastructure.csproj" />
+    <ProjectReference Include="..\Guardian.Windows\Guardian.Windows.csproj" />
+  </ItemGroup>
+
+</Project>

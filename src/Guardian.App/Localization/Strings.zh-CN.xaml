@@ -1,0 +1,266 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- 简体中文本地化字符串。 -->
+
+    <sys:String x:Key="Str.AppName">Guardian</sys:String>
+    <sys:String x:Key="Str.AppTitle">Guardian 工作环境保护</sys:String>
+
+    <!-- 连接状态 -->
+    <sys:String x:Key="Str.Connected">已连接</sys:String>
+    <sys:String x:Key="Str.Disconnected">已断开</sys:String>
+    <sys:String x:Key="Str.ServiceNotRunning">服务未运行</sys:String>
+    <sys:String x:Key="Str.ServiceNotInstalled">服务未安装</sys:String>
+
+    <!-- 顶栏 -->
+    <sys:String x:Key="Str.Settings">设置</sys:String>
+    <sys:String x:Key="Str.Logs">日志</sys:String>
+
+    <!-- 主控制 -->
+    <sys:String x:Key="Str.ProtectionStateLabel">保护状态</sys:String>
+    <sys:String x:Key="Str.CurrentMode">当前模式</sys:String>
+    <sys:String x:Key="Str.LastOperation">最近操作</sys:String>
+    <sys:String x:Key="Str.EnableProtection">开启保护</sys:String>
+    <sys:String x:Key="Str.DisableProtection">解除保护</sys:String>
+    <sys:String x:Key="Str.NoOperation">无</sys:String>
+
+    <!-- 最近操作（人话化） -->
+    <sys:String x:Key="Str.RecoveredClientLost">保护已自动解除：客户端失联（应用被关闭或异常退出）</sys:String>
+    <sys:String x:Key="Str.RecoveredEmergencyHotkey">紧急快捷键触发的恢复</sys:String>
+    <sys:String x:Key="Str.RecoveredUserRequest">用户手动恢复</sys:String>
+    <sys:String x:Key="Str.RecoveredAdapterFailure">保护组件异常，已自动恢复</sys:String>
+    <sys:String x:Key="Str.RecoveredServiceStop">服务停止，保护已全部释放</sys:String>
+    <sys:String x:Key="Str.RecoveredGeneric">自动恢复</sys:String>
+    <sys:String x:Key="Str.OpStartupRestore">服务启动：已释放全部保护（fail-open）</sys:String>
+    <sys:String x:Key="Str.StreamingNote">检测到串流会话：本机屏幕熄灭由串流端（虚拟显示器）接管，并非 Guardian 保护生效。</sys:String>
+
+    <!-- 待机模式（PS5 式） -->
+    <sys:String x:Key="Str.RestModeTitle">待机模式（PS5 式）</sys:String>
+    <sys:String x:Key="Str.RestModeDesc">开启后：合盖 / 电源键 / 系统睡眠转为待机——屏幕熄灭但系统在线，串流随时可连；本地键鼠唤醒需输入密码。电池低于 20% 自动退出；不拦截休眠（S4）。</sys:String>
+    <sys:String x:Key="Str.RestModeToggle">启用待机模式</sys:String>
+    <sys:String x:Key="Str.RestStatusOff">关闭</sys:String>
+    <sys:String x:Key="Str.RestStatusArmed">已启用</sys:String>
+    <sys:String x:Key="Str.RestStatusResting">待机中</sys:String>
+
+    <!-- 状态 -->
+    <sys:String x:Key="Str.StateInactive">已关闭</sys:String>
+    <sys:String x:Key="Str.StateActive">保护中</sys:String>
+    <sys:String x:Key="Str.StateActivating">正在启用</sys:String>
+    <sys:String x:Key="Str.StateRecovering">正在恢复</sys:String>
+    <sys:String x:Key="Str.StateFailed">异常</sys:String>
+    <sys:String x:Key="Str.StateUnknown">未知</sys:String>
+
+    <!-- 模式 -->
+    <sys:String x:Key="Str.ModeNone">无</sys:String>
+    <sys:String x:Key="Str.ModePrivacy">隐私保护</sys:String>
+    <sys:String x:Key="Str.ModeInputIsolation">输入隔离</sys:String>
+    <sys:String x:Key="Str.ModeEnhancedIsolation">增强隔离</sys:String>
+
+    <!-- 模式选择 -->
+    <sys:String x:Key="Str.ModeSelectionTitle">保护模式</sys:String>
+    <sys:String x:Key="Str.PrivacyMode">隐私保护</sys:String>
+    <sys:String x:Key="Str.PrivacyModeDesc">关闭显示输出，保持系统运行</sys:String>
+    <sys:String x:Key="Str.InputIsolationMode">输入隔离</sys:String>
+    <sys:String x:Key="Str.InputIsolationModeDesc">实验性，需双重确认</sys:String>
+    <sys:String x:Key="Str.EnhancedIsolationMode">增强隔离</sys:String>
+    <sys:String x:Key="Str.EnhancedIsolationModeDesc">Phase 2</sys:String>
+
+    <!-- 磁贴 -->
+    <sys:String x:Key="Str.TilePrivacy">显示隐私</sys:String>
+    <sys:String x:Key="Str.TileInputIsolation">输入隔离</sys:String>
+    <sys:String x:Key="Str.TilePower">电源保护</sys:String>
+    <sys:String x:Key="Str.TileActiveSessions">活动会话</sys:String>
+    <sys:String x:Key="Str.TilePowerSource">电源来源</sys:String>
+    <sys:String x:Key="Str.TileRemoteSession">远程会话</sys:String>
+    <sys:String x:Key="Str.TileMonitors">显示器</sys:String>
+    <sys:String x:Key="Str.Active">生效中</sys:String>
+    <sys:String x:Key="Str.InactiveValue">未启用</sys:String>
+    <sys:String x:Key="Str.Suspended">已挂起</sys:String>
+    <sys:String x:Key="Str.ACPower">交流电源</sys:String>
+    <sys:String x:Key="Str.BatteryPower">电池 {0}%</sys:String>
+    <sys:String x:Key="Str.Battery">电池</sys:String>
+    <sys:String x:Key="Str.Remote">远程</sys:String>
+    <sys:String x:Key="Str.Local">本地</sys:String>
+    <sys:String x:Key="Str.UnknownShort">未知</sys:String>
+
+    <!-- 会话 -->
+    <sys:String x:Key="Str.SessionsTitle">工作会话</sys:String>
+    <sys:String x:Key="Str.NewSession">新建会话</sys:String>
+    <sys:String x:Key="Str.EndSession">结束</sys:String>
+    <sys:String x:Key="Str.SessionName">名称</sys:String>
+    <sys:String x:Key="Str.SessionType">类型</sys:String>
+    <sys:String x:Key="Str.SessionMode">所需模式</sys:String>
+    <sys:String x:Key="Str.SessionCreatedAt">创建时间</sys:String>
+    <sys:String x:Key="Str.SessionStatus">状态</sys:String>
+    <sys:String x:Key="Str.SessionActive">进行中</sys:String>
+    <sys:String x:Key="Str.SessionEnded">已结束</sys:String>
+    <sys:String x:Key="Str.NoSessions">暂无活动会话</sys:String>
+
+    <!-- 工作负载 -->
+    <sys:String x:Key="Str.WorkloadRemoteDesktop">远程桌面</sys:String>
+    <sys:String x:Key="Str.WorkloadAiAgent">AI Agent</sys:String>
+    <sys:String x:Key="Str.WorkloadRpaAutomation">RPA 自动化</sys:String>
+    <sys:String x:Key="Str.WorkloadCompilation">编译</sys:String>
+    <sys:String x:Key="Str.WorkloadRendering">渲染</sys:String>
+    <sys:String x:Key="Str.WorkloadLocalInference">本地推理</sys:String>
+    <sys:String x:Key="Str.WorkloadOther">其他</sys:String>
+
+    <!-- 来源 -->
+    <sys:String x:Key="Str.SourceManual">手动</sys:String>
+    <sys:String x:Key="Str.SourceExternal">外部</sys:String>
+    <sys:String x:Key="Str.SourceAutoDetected">自动识别</sys:String>
+
+    <!-- 底部栏 -->
+    <sys:String x:Key="Str.EmergencyRecover">紧急恢复</sys:String>
+    <sys:String x:Key="Str.EmergencyRecoverHotkeyNote">紧急快捷键 {0} 在输入隔离期间由服务端钩子直接生效</sys:String>
+    <sys:String x:Key="Str.EmergencyRecoverConfirm">警告：将释放全部保护并结束全部会话。此操作不可撤销，是否继续？</sys:String>
+    <sys:String x:Key="Str.ProtectionStatus">保护状态</sys:String>
+    <sys:String x:Key="Str.ProtectionHeldBySessions">仍有 {0} 个活动会话维持保护</sys:String>
+
+    <!-- 服务横幅 -->
+    <sys:String x:Key="Str.ServiceBannerNotInstalled">后台服务未安装</sys:String>
+    <sys:String x:Key="Str.ServiceBannerNotRunning">后台服务未运行</sys:String>
+    <sys:String x:Key="Str.ServiceBannerTitle">后台服务</sys:String>
+    <sys:String x:Key="Str.InstallStartService">安装 / 启动服务（需管理员）</sys:String>
+    <sys:String x:Key="Str.InstallScriptNotFound">未找到 install.ps1。请确认服务已安装，或手动运行安装脚本。</sys:String>
+    <sys:String x:Key="Str.ServiceStartFailed">服务安装/启动失败</sys:String>
+
+    <!-- 显示隐私检查 -->
+    <sys:String x:Key="Str.DisplayPrivacyCheckTitle">显示隐私检查</sys:String>
+    <sys:String x:Key="Str.DisplayPrivacyCheckMessage">确认后本机显示器将被关闭，请在远程端确认画面是否正常。</sys:String>
+    <sys:String x:Key="Str.DisplayPrivacyCheckAcknowledge">我已了解，继续</sys:String>
+
+    <!-- 输入隔离确认 -->
+    <sys:String x:Key="Str.IsolationConfirmTitle">输入隔离确认</sys:String>
+    <sys:String x:Key="Str.IsolationRiskIntro">启用输入隔离前，请确认已知悉以下风险：</sys:String>
+    <sys:String x:Key="Str.IsolationRisk1">RDP 远程输入可能被误拦截；</sys:String>
+    <sys:String x:Key="Str.IsolationRisk2">此为实验性功能，可能不稳定；</sys:String>
+    <sys:String x:Key="Str.IsolationRisk3">紧急恢复快捷键 Ctrl+Alt+Shift+F12 由服务端钩子直接生效。</sys:String>
+    <sys:String x:Key="Str.IsolationRiskRemote">当前处于远程会话且设置中未允许远程会话期间隔离，启用将被服务拒绝。</sys:String>
+    <sys:String x:Key="Str.IsolationAcknowledge">我已了解上述风险</sys:String>
+
+    <!-- 远程画面确认 -->
+    <sys:String x:Key="Str.RemoteCaptureOkTitle">远程画面是否正常？</sys:String>
+    <sys:String x:Key="Str.RemoteCaptureOkMessage">显示器已关闭。请在远程端确认画面是否正常（“是”=正常，“否”=异常）。</sys:String>
+
+    <!-- 设置 -->
+    <sys:String x:Key="Str.SettingsTitle">设置</sys:String>
+    <sys:String x:Key="Str.GroupApp">应用</sys:String>
+    <sys:String x:Key="Str.GroupService">保护服务</sys:String>
+    <sys:String x:Key="Str.LanguageLabel">语言</sys:String>
+    <sys:String x:Key="Str.LanguageChinese">中文</sys:String>
+    <sys:String x:Key="Str.LanguageEnglish">English</sys:String>
+    <sys:String x:Key="Str.ThemeLabel">主题</sys:String>
+    <sys:String x:Key="Str.ThemeLight">浅色</sys:String>
+    <sys:String x:Key="Str.ThemeDark">深色</sys:String>
+    <sys:String x:Key="Str.ThemeSystem">跟随系统</sys:String>
+    <sys:String x:Key="Str.EmergencyHotkeyKey">紧急恢复主键</sys:String>
+    <sys:String x:Key="Str.EmergencyHotkeyNote">修饰键固定为 Ctrl+Alt+Shift</sys:String>
+    <sys:String x:Key="Str.UiLossAction">UI 丢失动作</sys:String>
+    <sys:String x:Key="Str.UiLossRecover">自动恢复保护</sys:String>
+    <sys:String x:Key="Str.UiLossKeep">保持保护</sys:String>
+    <sys:String x:Key="Str.ResumePolicy">服务重启策略</sys:String>
+    <sys:String x:Key="Str.ResumeRestore">恢复系统</sys:String>
+    <sys:String x:Key="Str.ResumeLast">恢复上次保护</sys:String>
+    <sys:String x:Key="Str.ClientLostThreshold">客户端丢失阈值（秒）</sys:String>
+    <sys:String x:Key="Str.OnlyOnAcPower">仅交流电源保持运行</sys:String>
+    <sys:String x:Key="Str.MaxManualProtection">手动保护最长时长（分钟，0=不限）</sys:String>
+    <sys:String x:Key="Str.AllowIsolationRemote">允许远程会话期间启用输入隔离</sys:String>
+    <sys:String x:Key="Str.AllowIsolationRemoteWarning">（安全风险，默认关闭）</sys:String>
+    <sys:String x:Key="Str.LogLevel">日志级别</sys:String>
+    <sys:String x:Key="Str.Save">保存</sys:String>
+    <sys:String x:Key="Str.Cancel">取消</sys:String>
+    <sys:String x:Key="Str.Confirm">确定</sys:String>
+
+    <!-- 日志级别 -->
+    <sys:String x:Key="Str.LogTrace">Trace</sys:String>
+    <sys:String x:Key="Str.LogDebug">Debug</sys:String>
+    <sys:String x:Key="Str.LogInformation">Information</sys:String>
+    <sys:String x:Key="Str.LogWarning">Warning</sys:String>
+    <sys:String x:Key="Str.LogError">Error</sys:String>
+    <sys:String x:Key="Str.LogCritical">Critical</sys:String>
+
+    <!-- 新建会话 -->
+    <sys:String x:Key="Str.CreateSessionTitle">新建会话</sys:String>
+    <sys:String x:Key="Str.SessionNamePlaceholder">会话名称（必填）</sys:String>
+    <sys:String x:Key="Str.WorkloadTypeLabel">工作负载类型</sys:String>
+    <sys:String x:Key="Str.RequiredModeLabel">所需保护模式</sys:String>
+    <sys:String x:Key="Str.SourceLabel">来源</sys:String>
+    <sys:String x:Key="Str.MaxDurationLabel">最长时长（分钟，可空）</sys:String>
+    <sys:String x:Key="Str.AllowAutoEnd">允许自动结束</sys:String>
+    <sys:String x:Key="Str.NameRequiredError">请填写会话名称</sys:String>
+
+    <!-- 日志窗口 -->
+    <sys:String x:Key="Str.LogsTitle">日志</sys:String>
+    <sys:String x:Key="Str.LogTime">时间</sys:String>
+    <sys:String x:Key="Str.LogLevelColumn">级别</sys:String>
+    <sys:String x:Key="Str.LogCategory">类别</sys:String>
+    <sys:String x:Key="Str.LogMessage">消息</sys:String>
+
+    <!-- 托盘 -->
+    <sys:String x:Key="Str.TrayShow">显示主界面</sys:String>
+    <sys:String x:Key="Str.TrayEnablePrivacy">开启保护（隐私）</sys:String>
+    <sys:String x:Key="Str.TrayDisable">解除保护</sys:String>
+    <sys:String x:Key="Str.TrayRecover">紧急恢复</sys:String>
+    <sys:String x:Key="Str.TrayExit">退出</sys:String>
+    <sys:String x:Key="Str.TrayBalloon">已最小化到托盘</sys:String>
+
+    <sys:String x:Key="Str.EnvOfflineDir">安装包离线目录</sys:String>
+    <sys:String x:Key="Str.EnvOfflineDirNote">无网或下载过慢时，把官方同名安装包放到这里（文件名与 SHA256 见主窗口"串流环境 → 自检详情"）。留空则直接联网下载。</sys:String>
+
+    <!-- 串流环境（一键启用 / 一键卸载） -->
+    <sys:String x:Key="Str.EnvTitle">串流环境（Sunshine 虚拟显示屏）</sys:String>
+    <sys:String x:Key="Str.EnvAssetsTitle">钉死的安装包（可自行核对）</sys:String>
+    <sys:String x:Key="Str.EnvEnable">一键启用</sys:String>
+    <sys:String x:Key="Str.EnvRevert">一键恢复</sys:String>
+    <sys:String x:Key="Str.EnvRefresh">重新探测</sys:String>
+    <sys:String x:Key="Str.EnvDetails">自检详情</sys:String>
+    <sys:String x:Key="Str.EnvStateUnknown">未探测</sys:String>
+    <sys:String x:Key="Str.EnvStateBusy">处理中…</sys:String>
+    <sys:String x:Key="Str.EnvStateReady">已就绪（虚拟屏接管）</sys:String>
+    <sys:String x:Key="Str.EnvStateReverted">已恢复（物理屏形态）</sys:String>
+    <sys:String x:Key="Str.EnvStateMissing">未安装 Sunshine</sys:String>
+    <sys:String x:Key="Str.EnvStatePartial">需要处理</sys:String>
+    <sys:String x:Key="Str.EnvStateActivating">已激活（物理屏仍亮，未完成接管）</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayAttached">接屏进桌面</sys:String>
+    <sys:String x:Key="Str.EnvAttachDone">虚拟屏已接进桌面布局</sys:String>
+    <sys:String x:Key="Str.EnvAttachFailed">虚拟屏接屏未成功</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineActivating">第一阶段：激活虚拟屏</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineTakeover">第二阶段：接管拓扑</sys:String>
+    <sys:String x:Key="Str.EnvNotProbed">尚未探测到环境信息</sys:String>
+    <sys:String x:Key="Str.EnvSunshine">Sunshine</sys:String>
+    <sys:String x:Key="Str.EnvSunshineMissing">Sunshine 未安装</sys:String>
+    <sys:String x:Key="Str.EnvDevice">虚拟屏设备</sys:String>
+    <sys:String x:Key="Str.EnvDeviceEnabled">已启用</sys:String>
+    <sys:String x:Key="Str.EnvDeviceDisabled">已禁用</sys:String>
+    <sys:String x:Key="Str.EnvDeviceAbsent">无虚拟屏设备</sys:String>
+    <sys:String x:Key="Str.EnvConfigOn">配置已接管拓扑</sys:String>
+    <sys:String x:Key="Str.EnvConfigOff">配置未接管拓扑</sys:String>
+    <sys:String x:Key="Str.EnvConfigDrift">配置与运行不一致</sys:String>
+    <sys:String x:Key="Str.EnvPhysicalActive">物理屏活动中</sys:String>
+    <sys:String x:Key="Str.EnvPhysicalInactive">物理屏未活动</sys:String>
+    <sys:String x:Key="Str.EnvPhysicalUnknown">物理屏状态未确认</sys:String>
+    <sys:String x:Key="Str.EnvApplyFailed">一键操作发起失败</sys:String>
+    <sys:String x:Key="Str.EnvProbeFailed">环境探测失败</sys:String>
+    <sys:String x:Key="Str.EnvRestoreDone">已重新挂载物理屏</sys:String>
+    <sys:String x:Key="Str.EnvRestoreFailed">物理屏重新挂载未成功</sys:String>
+    <sys:String x:Key="Str.EnvRestoreSkippedWhileStreaming">串流进行中，跳过物理屏重挂载</sys:String>
+    <sys:String x:Key="Str.EnvRestoreSkippedNoDisplay">本会话枚举不到显示器，跳过物理屏重挂载</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineInstalled">Sunshine 安装</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayDriver">虚拟显示驱动</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayEnabled">虚拟设备启用</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayEnumerated">虚拟屏枚举命中</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineConfigured">Sunshine 配置</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineRunning">Sunshine 服务</sys:String>
+    <sys:String x:Key="Str.EnvStep.PhysicalDisplayRestored">物理屏交还</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Ok">已完成</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Failed">失败</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Blocked">已拦停</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Skipped">无需执行</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Pending">待执行</sys:String>
+
+    <!-- 错误 -->
+    <sys:String x:Key="Str.ErrorTitle">错误</sys:String>
+
+</ResourceDictionary>

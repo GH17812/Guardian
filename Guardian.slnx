@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Guardian.App/Guardian.App.csproj" />
+    <Project Path="src/Guardian.Contracts/Guardian.Contracts.csproj" />
+    <Project Path="src/Guardian.Core/Guardian.Core.csproj" />
+    <Project Path="src/Guardian.Infrastructure/Guardian.Infrastructure.csproj" />
+    <Project Path="src/Guardian.Service/Guardian.Service.csproj" />
+    <Project Path="src/Guardian.Storage/Guardian.Storage.csproj" />
+    <Project Path="src/Guardian.Windows/Guardian.Windows.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Guardian.Contracts.Tests/Guardian.Contracts.Tests.csproj" />
+    <Project Path="tests/Guardian.Core.Tests/Guardian.Core.Tests.csproj" />
+    <Project Path="tests/Guardian.Integration.Tests/Guardian.Integration.Tests.csproj" />
+  </Folder>
+</Solution>

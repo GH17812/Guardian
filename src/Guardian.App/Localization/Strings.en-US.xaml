@@ -1,0 +1,266 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- English localization strings. -->
+
+    <sys:String x:Key="Str.AppName">Guardian</sys:String>
+    <sys:String x:Key="Str.AppTitle">Guardian Workspace Protection</sys:String>
+
+    <!-- Connection -->
+    <sys:String x:Key="Str.Connected">Connected</sys:String>
+    <sys:String x:Key="Str.Disconnected">Disconnected</sys:String>
+    <sys:String x:Key="Str.ServiceNotRunning">Service not running</sys:String>
+    <sys:String x:Key="Str.ServiceNotInstalled">Service not installed</sys:String>
+
+    <!-- Top bar -->
+    <sys:String x:Key="Str.Settings">Settings</sys:String>
+    <sys:String x:Key="Str.Logs">Logs</sys:String>
+
+    <!-- Main control -->
+    <sys:String x:Key="Str.ProtectionStateLabel">Protection Status</sys:String>
+    <sys:String x:Key="Str.CurrentMode">Current Mode</sys:String>
+    <sys:String x:Key="Str.LastOperation">Last Operation</sys:String>
+    <sys:String x:Key="Str.EnableProtection">Enable Protection</sys:String>
+    <sys:String x:Key="Str.DisableProtection">Disable Protection</sys:String>
+    <sys:String x:Key="Str.NoOperation">None</sys:String>
+
+    <!-- Last operation (human-readable) -->
+    <sys:String x:Key="Str.RecoveredClientLost">Protection auto-recovered: UI client lost (app closed or crashed)</sys:String>
+    <sys:String x:Key="Str.RecoveredEmergencyHotkey">Recovered by emergency hotkey</sys:String>
+    <sys:String x:Key="Str.RecoveredUserRequest">Recovered by user request</sys:String>
+    <sys:String x:Key="Str.RecoveredAdapterFailure">Recovered after protection adapter failure</sys:String>
+    <sys:String x:Key="Str.RecoveredServiceStop">Service stopped: protection released</sys:String>
+    <sys:String x:Key="Str.RecoveredGeneric">Auto-recovered</sys:String>
+    <sys:String x:Key="Str.OpStartupRestore">Service startup: protection released (fail-open)</sys:String>
+    <sys:String x:Key="Str.StreamingNote">Streaming session detected: the local screen is turned off by the streaming host (virtual display), not by Guardian protection.</sys:String>
+
+    <!-- Rest mode (PS5-style) -->
+    <sys:String x:Key="Str.RestModeTitle">Rest mode (PS5-style)</sys:String>
+    <sys:String x:Key="Str.RestModeDesc">When enabled, lid close / power button / sleep turns into rest: screen off but the system stays online, so streaming is always reachable. Local keyboard/mouse wakes it and requires your password. Auto-exits below 20% battery; does not intercept hibernation (S4).</sys:String>
+    <sys:String x:Key="Str.RestModeToggle">Enable rest mode</sys:String>
+    <sys:String x:Key="Str.RestStatusOff">Off</sys:String>
+    <sys:String x:Key="Str.RestStatusArmed">Enabled</sys:String>
+    <sys:String x:Key="Str.RestStatusResting">Resting</sys:String>
+
+    <!-- States -->
+    <sys:String x:Key="Str.StateInactive">Inactive</sys:String>
+    <sys:String x:Key="Str.StateActive">Active</sys:String>
+    <sys:String x:Key="Str.StateActivating">Activating</sys:String>
+    <sys:String x:Key="Str.StateRecovering">Recovering</sys:String>
+    <sys:String x:Key="Str.StateFailed">Failed</sys:String>
+    <sys:String x:Key="Str.StateUnknown">Unknown</sys:String>
+
+    <!-- Modes -->
+    <sys:String x:Key="Str.ModeNone">None</sys:String>
+    <sys:String x:Key="Str.ModePrivacy">Privacy</sys:String>
+    <sys:String x:Key="Str.ModeInputIsolation">Input Isolation</sys:String>
+    <sys:String x:Key="Str.ModeEnhancedIsolation">Enhanced Isolation</sys:String>
+
+    <!-- Mode selection -->
+    <sys:String x:Key="Str.ModeSelectionTitle">Protection Mode</sys:String>
+    <sys:String x:Key="Str.PrivacyMode">Privacy</sys:String>
+    <sys:String x:Key="Str.PrivacyModeDesc">Turns off the display, keeps the system running</sys:String>
+    <sys:String x:Key="Str.InputIsolationMode">Input Isolation</sys:String>
+    <sys:String x:Key="Str.InputIsolationModeDesc">Experimental, requires double confirmation</sys:String>
+    <sys:String x:Key="Str.EnhancedIsolationMode">Enhanced Isolation</sys:String>
+    <sys:String x:Key="Str.EnhancedIsolationModeDesc">Phase 2</sys:String>
+
+    <!-- Tiles -->
+    <sys:String x:Key="Str.TilePrivacy">Display Privacy</sys:String>
+    <sys:String x:Key="Str.TileInputIsolation">Input Isolation</sys:String>
+    <sys:String x:Key="Str.TilePower">Power Protection</sys:String>
+    <sys:String x:Key="Str.TileActiveSessions">Active Sessions</sys:String>
+    <sys:String x:Key="Str.TilePowerSource">Power Source</sys:String>
+    <sys:String x:Key="Str.TileRemoteSession">Remote Session</sys:String>
+    <sys:String x:Key="Str.TileMonitors">Monitors</sys:String>
+    <sys:String x:Key="Str.Active">Active</sys:String>
+    <sys:String x:Key="Str.InactiveValue">Inactive</sys:String>
+    <sys:String x:Key="Str.Suspended">Suspended</sys:String>
+    <sys:String x:Key="Str.ACPower">AC Power</sys:String>
+    <sys:String x:Key="Str.BatteryPower">Battery {0}%</sys:String>
+    <sys:String x:Key="Str.Battery">Battery</sys:String>
+    <sys:String x:Key="Str.Remote">Remote</sys:String>
+    <sys:String x:Key="Str.Local">Local</sys:String>
+    <sys:String x:Key="Str.UnknownShort">Unknown</sys:String>
+
+    <!-- Sessions -->
+    <sys:String x:Key="Str.SessionsTitle">Work Sessions</sys:String>
+    <sys:String x:Key="Str.NewSession">New Session</sys:String>
+    <sys:String x:Key="Str.EndSession">End</sys:String>
+    <sys:String x:Key="Str.SessionName">Name</sys:String>
+    <sys:String x:Key="Str.SessionType">Type</sys:String>
+    <sys:String x:Key="Str.SessionMode">Required Mode</sys:String>
+    <sys:String x:Key="Str.SessionCreatedAt">Created</sys:String>
+    <sys:String x:Key="Str.SessionStatus">Status</sys:String>
+    <sys:String x:Key="Str.SessionActive">Active</sys:String>
+    <sys:String x:Key="Str.SessionEnded">Ended</sys:String>
+    <sys:String x:Key="Str.NoSessions">No active sessions</sys:String>
+
+    <!-- Workloads -->
+    <sys:String x:Key="Str.WorkloadRemoteDesktop">Remote Desktop</sys:String>
+    <sys:String x:Key="Str.WorkloadAiAgent">AI Agent</sys:String>
+    <sys:String x:Key="Str.WorkloadRpaAutomation">RPA Automation</sys:String>
+    <sys:String x:Key="Str.WorkloadCompilation">Compilation</sys:String>
+    <sys:String x:Key="Str.WorkloadRendering">Rendering</sys:String>
+    <sys:String x:Key="Str.WorkloadLocalInference">Local Inference</sys:String>
+    <sys:String x:Key="Str.WorkloadOther">Other</sys:String>
+
+    <!-- Source -->
+    <sys:String x:Key="Str.SourceManual">Manual</sys:String>
+    <sys:String x:Key="Str.SourceExternal">External</sys:String>
+    <sys:String x:Key="Str.SourceAutoDetected">Auto-detected</sys:String>
+
+    <!-- Bottom bar -->
+    <sys:String x:Key="Str.EmergencyRecover">Emergency Recovery</sys:String>
+    <sys:String x:Key="Str.EmergencyRecoverHotkeyNote">Emergency hotkey {0} is handled directly by the service hook during input isolation</sys:String>
+    <sys:String x:Key="Str.EmergencyRecoverConfirm">Warning: this releases all protection and ends all sessions. This cannot be undone. Continue?</sys:String>
+    <sys:String x:Key="Str.ProtectionStatus">Protection Status</sys:String>
+    <sys:String x:Key="Str.ProtectionHeldBySessions">{0} active sessions still maintaining protection</sys:String>
+
+    <!-- Service banner -->
+    <sys:String x:Key="Str.ServiceBannerNotInstalled">Background service not installed</sys:String>
+    <sys:String x:Key="Str.ServiceBannerNotRunning">Background service not running</sys:String>
+    <sys:String x:Key="Str.ServiceBannerTitle">Background Service</sys:String>
+    <sys:String x:Key="Str.InstallStartService">Install / Start Service (admin required)</sys:String>
+    <sys:String x:Key="Str.InstallScriptNotFound">install.ps1 not found. Ensure the service is installed or run the installer manually.</sys:String>
+    <sys:String x:Key="Str.ServiceStartFailed">Failed to install/start the service</sys:String>
+
+    <!-- Display privacy check -->
+    <sys:String x:Key="Str.DisplayPrivacyCheckTitle">Display Privacy Check</sys:String>
+    <sys:String x:Key="Str.DisplayPrivacyCheckMessage">After confirmation the local display will be turned off. Verify the picture on the remote end.</sys:String>
+    <sys:String x:Key="Str.DisplayPrivacyCheckAcknowledge">I understand, continue</sys:String>
+
+    <!-- Isolation confirmation -->
+    <sys:String x:Key="Str.IsolationConfirmTitle">Input Isolation Confirmation</sys:String>
+    <sys:String x:Key="Str.IsolationRiskIntro">Before enabling input isolation, confirm you understand the risks:</sys:String>
+    <sys:String x:Key="Str.IsolationRisk1">RDP remote input may be blocked by mistake;</sys:String>
+    <sys:String x:Key="Str.IsolationRisk2">This is an experimental feature and may be unstable;</sys:String>
+    <sys:String x:Key="Str.IsolationRisk3">The emergency hotkey Ctrl+Alt+Shift+F12 is handled directly by the service hook.</sys:String>
+    <sys:String x:Key="Str.IsolationRiskRemote">You are in a remote session and isolation during remote sessions is disabled in settings; enabling will be rejected.</sys:String>
+    <sys:String x:Key="Str.IsolationAcknowledge">I understand the risks</sys:String>
+
+    <!-- Remote capture confirmation -->
+    <sys:String x:Key="Str.RemoteCaptureOkTitle">Is the remote picture OK?</sys:String>
+    <sys:String x:Key="Str.RemoteCaptureOkMessage">The display has been turned off. Confirm the picture on the remote end (Yes = OK, No = abnormal).</sys:String>
+
+    <!-- Settings -->
+    <sys:String x:Key="Str.SettingsTitle">Settings</sys:String>
+    <sys:String x:Key="Str.GroupApp">Application</sys:String>
+    <sys:String x:Key="Str.GroupService">Protection Service</sys:String>
+    <sys:String x:Key="Str.LanguageLabel">Language</sys:String>
+    <sys:String x:Key="Str.LanguageChinese">中文</sys:String>
+    <sys:String x:Key="Str.LanguageEnglish">English</sys:String>
+    <sys:String x:Key="Str.ThemeLabel">Theme</sys:String>
+    <sys:String x:Key="Str.ThemeLight">Light</sys:String>
+    <sys:String x:Key="Str.ThemeDark">Dark</sys:String>
+    <sys:String x:Key="Str.ThemeSystem">System</sys:String>
+    <sys:String x:Key="Str.EmergencyHotkeyKey">Emergency recovery key</sys:String>
+    <sys:String x:Key="Str.EmergencyHotkeyNote">Modifiers are fixed to Ctrl+Alt+Shift</sys:String>
+    <sys:String x:Key="Str.UiLossAction">UI loss action</sys:String>
+    <sys:String x:Key="Str.UiLossRecover">Recover protection</sys:String>
+    <sys:String x:Key="Str.UiLossKeep">Keep protection</sys:String>
+    <sys:String x:Key="Str.ResumePolicy">Service restart policy</sys:String>
+    <sys:String x:Key="Str.ResumeRestore">Restore system</sys:String>
+    <sys:String x:Key="Str.ResumeLast">Resume last protection</sys:String>
+    <sys:String x:Key="Str.ClientLostThreshold">Client lost threshold (seconds)</sys:String>
+    <sys:String x:Key="Str.OnlyOnAcPower">Keep running only on AC power</sys:String>
+    <sys:String x:Key="Str.MaxManualProtection">Max manual protection (minutes, 0 = unlimited)</sys:String>
+    <sys:String x:Key="Str.AllowIsolationRemote">Allow input isolation during remote session</sys:String>
+    <sys:String x:Key="Str.AllowIsolationRemoteWarning">(Security risk, off by default)</sys:String>
+    <sys:String x:Key="Str.LogLevel">Log level</sys:String>
+    <sys:String x:Key="Str.Save">Save</sys:String>
+    <sys:String x:Key="Str.Cancel">Cancel</sys:String>
+    <sys:String x:Key="Str.Confirm">OK</sys:String>
+
+    <!-- Log levels -->
+    <sys:String x:Key="Str.LogTrace">Trace</sys:String>
+    <sys:String x:Key="Str.LogDebug">Debug</sys:String>
+    <sys:String x:Key="Str.LogInformation">Information</sys:String>
+    <sys:String x:Key="Str.LogWarning">Warning</sys:String>
+    <sys:String x:Key="Str.LogError">Error</sys:String>
+    <sys:String x:Key="Str.LogCritical">Critical</sys:String>
+
+    <!-- Create session -->
+    <sys:String x:Key="Str.CreateSessionTitle">New Session</sys:String>
+    <sys:String x:Key="Str.SessionNamePlaceholder">Session name (required)</sys:String>
+    <sys:String x:Key="Str.WorkloadTypeLabel">Workload type</sys:String>
+    <sys:String x:Key="Str.RequiredModeLabel">Required protection mode</sys:String>
+    <sys:String x:Key="Str.SourceLabel">Source</sys:String>
+    <sys:String x:Key="Str.MaxDurationLabel">Max duration (minutes, optional)</sys:String>
+    <sys:String x:Key="Str.AllowAutoEnd">Allow auto end</sys:String>
+    <sys:String x:Key="Str.NameRequiredError">Session name is required</sys:String>
+
+    <!-- Logs window -->
+    <sys:String x:Key="Str.LogsTitle">Logs</sys:String>
+    <sys:String x:Key="Str.LogTime">Time</sys:String>
+    <sys:String x:Key="Str.LogLevelColumn">Level</sys:String>
+    <sys:String x:Key="Str.LogCategory">Category</sys:String>
+    <sys:String x:Key="Str.LogMessage">Message</sys:String>
+
+    <!-- Tray -->
+    <sys:String x:Key="Str.TrayShow">Show Main Window</sys:String>
+    <sys:String x:Key="Str.TrayEnablePrivacy">Enable Protection (Privacy)</sys:String>
+    <sys:String x:Key="Str.TrayDisable">Disable Protection</sys:String>
+    <sys:String x:Key="Str.TrayRecover">Emergency Recovery</sys:String>
+    <sys:String x:Key="Str.TrayExit">Exit</sys:String>
+    <sys:String x:Key="Str.TrayBalloon">Minimized to tray</sys:String>
+
+    <sys:String x:Key="Str.EnvOfflineDir">Offline installer folder</sys:String>
+    <sys:String x:Key="Str.EnvOfflineDirNote">When offline or downloads are slow, put the official installers (same file names) here - see Streaming environment / Self-check for URL and SHA256. Leave empty to download.</sys:String>
+
+    <!-- Streaming environment (one-click enable / revert) -->
+    <sys:String x:Key="Str.EnvTitle">Streaming environment (Sunshine virtual display)</sys:String>
+    <sys:String x:Key="Str.EnvAssetsTitle">Pinned installers (verifiable)</sys:String>
+    <sys:String x:Key="Str.EnvEnable">Enable</sys:String>
+    <sys:String x:Key="Str.EnvRevert">Revert</sys:String>
+    <sys:String x:Key="Str.EnvRefresh">Re-detect</sys:String>
+    <sys:String x:Key="Str.EnvDetails">Self-check</sys:String>
+    <sys:String x:Key="Str.EnvStateUnknown">Not detected</sys:String>
+    <sys:String x:Key="Str.EnvStateBusy">Working…</sys:String>
+    <sys:String x:Key="Str.EnvStateReady">Ready (virtual display in charge)</sys:String>
+    <sys:String x:Key="Str.EnvStateReverted">Reverted (physical display)</sys:String>
+    <sys:String x:Key="Str.EnvStateMissing">Sunshine not installed</sys:String>
+    <sys:String x:Key="Str.EnvStatePartial">Needs attention</sys:String>
+    <sys:String x:Key="Str.EnvStateActivating">Activated (physical display still on)</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayAttached">Attach virtual display</sys:String>
+    <sys:String x:Key="Str.EnvAttachDone">Virtual display attached to desktop</sys:String>
+    <sys:String x:Key="Str.EnvAttachFailed">Virtual display attach failed</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineActivating">Phase 1: activate virtual display</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineTakeover">Phase 2: take over topology</sys:String>
+    <sys:String x:Key="Str.EnvNotProbed">Environment not detected yet</sys:String>
+    <sys:String x:Key="Str.EnvSunshine">Sunshine</sys:String>
+    <sys:String x:Key="Str.EnvSunshineMissing">Sunshine missing</sys:String>
+    <sys:String x:Key="Str.EnvDevice">Virtual device</sys:String>
+    <sys:String x:Key="Str.EnvDeviceEnabled">enabled</sys:String>
+    <sys:String x:Key="Str.EnvDeviceDisabled">disabled</sys:String>
+    <sys:String x:Key="Str.EnvDeviceAbsent">no virtual device</sys:String>
+    <sys:String x:Key="Str.EnvConfigOn">topology takeover on</sys:String>
+    <sys:String x:Key="Str.EnvConfigOff">topology takeover off</sys:String>
+    <sys:String x:Key="Str.EnvConfigDrift">config differs from running state</sys:String>
+    <sys:String x:Key="Str.EnvPhysicalActive">physical display active</sys:String>
+    <sys:String x:Key="Str.EnvPhysicalInactive">physical display inactive</sys:String>
+    <sys:String x:Key="Str.EnvPhysicalUnknown">physical display unconfirmed</sys:String>
+    <sys:String x:Key="Str.EnvApplyFailed">One-click action failed to start</sys:String>
+    <sys:String x:Key="Str.EnvProbeFailed">Environment detection failed</sys:String>
+    <sys:String x:Key="Str.EnvRestoreDone">Physical display reattached</sys:String>
+    <sys:String x:Key="Str.EnvRestoreFailed">Physical display reattach failed</sys:String>
+    <sys:String x:Key="Str.EnvRestoreSkippedWhileStreaming">Streaming in progress, skipped reattach</sys:String>
+    <sys:String x:Key="Str.EnvRestoreSkippedNoDisplay">No display visible in this session, skipped reattach</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineInstalled">Sunshine install</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayDriver">Virtual display driver</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayEnabled">Virtual device enabled</sys:String>
+    <sys:String x:Key="Str.EnvStep.VirtualDisplayEnumerated">Virtual output enumerated</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineConfigured">Sunshine config</sys:String>
+    <sys:String x:Key="Str.EnvStep.SunshineRunning">Sunshine service</sys:String>
+    <sys:String x:Key="Str.EnvStep.PhysicalDisplayRestored">Physical display restored</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Ok">Done</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Failed">Failed</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Blocked">Blocked</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Skipped">Not needed</sys:String>
+    <sys:String x:Key="Str.EnvOutcome.Pending">Pending</sys:String>
+
+    <!-- Error -->
+    <sys:String x:Key="Str.ErrorTitle">Error</sys:String>
+
+</ResourceDictionary>
