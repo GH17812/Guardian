@@ -10,7 +10,9 @@ AI Agent、RPA 与自动化任务在后台持续运行；人离开工位时，�
 ![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=flat-square)
 ![版本](https://img.shields.io/badge/version-0.1.5-2ea44f?style=flat-square)
 
-![主界面](docs/images/main-window.png)
+> **Guardian** — privacy and protection layer for unattended Windows workstations: screen privacy, input isolation, PS5-style standby, built for remote work, game streaming, remote research and AI agents. [English ↓](#english)
+
+![演示](docs/images/demo.gif)
 
 **它能做什么**
 
@@ -33,6 +35,22 @@ AI Agent、RPA 与自动化任务在后台持续运行；人离开工位时，�
 | **游戏串流** | 平板或轻薄本远程连回家用主机，虚拟显示器稳定输出画面，本地键鼠隔离避免误触。 |
 | **远程科研** | 训练、仿真、实验在主机后台长时间运行，人离开后熄屏并隔离输入，随时远程查看进度。 |
 | **AI Agent 无人值守** | Agent、RPA 与自动化脚本执行期间保持熄屏与输入隔离，任务结束一键恢复。 |
+
+## English
+
+**Project Guardian** is a privacy and protection layer for unattended Windows workstations. When you leave your desk while AI agents, RPA jobs, rendering or game streams keep running, Guardian turns the physical display off, isolates local keyboard and mouse input, and keeps the host fully reachable from Moonlight — tasks are never interrupted and on-screen content stays private.
+
+- **One-click setup** — installs Sunshine, enables the virtual display and hands over automatically; one click restores normal streaming.
+- **Two protection modes** — screen-off only, or screen-off plus local input isolation.
+- **PS5-style standby** — display off, system online, local wake-up requires a password.
+- **Emergency recovery** — `Ctrl+Alt+Shift+F12` is handled by the service, independent of the UI.
+- **Offline installer** — v0.1.5 bundles Sunshine and the Virtual Display Driver, with a self-contained .NET runtime.
+
+**Use cases:** remote work, game streaming, remote research, unattended access for AI agents.
+
+**Keywords:** Windows, screen privacy, input isolation, remote desktop, game streaming, virtual display driver, Moonlight, Sunshine, unattended access, AI agents, WPF, .NET.
+
+Download: [v0.1.5 offline](https://github.com/GH17812/Guardian/releases/download/v0.1.5/Guardian-0.1.5.msi) · [v0.1.2 online](https://github.com/GH17812/Guardian/releases/download/v0.1.2/Guardian-0.1.2.msi) · [all releases](https://github.com/GH17812/Guardian/releases)
 
 ## 核心原则
 
