@@ -5,6 +5,7 @@
 AI Agent、RPA 与自动化任务在后台持续运行；人离开工位时，物理屏熄灭、本地键鼠被隔离，远程端画面照常流畅——任务不被打断，屏幕内容不被旁人看见。
 
 [![下载 v0.1.5](https://img.shields.io/badge/下载-v0.1.5%20离线完整版-2ea44f?style=for-the-badge)](https://github.com/GH17812/Guardian/releases/download/v0.1.5/Guardian-0.1.5.msi)
+[![下载 v0.1.2](https://img.shields.io/badge/下载-v0.1.2%20在线版-6e7681?style=for-the-badge)](https://github.com/GH17812/Guardian/releases/download/v0.1.2/Guardian-0.1.2.msi)
 ![平台](https://img.shields.io/badge/Windows-10%2F11%20x64-0078D4?style=flat-square)
 ![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=flat-square)
 ![版本](https://img.shields.io/badge/version-0.1.5-2ea44f?style=flat-square)
